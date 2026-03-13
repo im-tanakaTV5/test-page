@@ -1,0 +1,346 @@
+/* ===== Reset / Base ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+body { background: #000; color: #fff; overflow-x: hidden; }
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+
+/* ===== Navbar ===== */
+#navbar.scrolled {
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ===== Hero grid ===== */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ===== Scroll indicator ===== */
+.scroll-line {
+  width: 1px; height: 48px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%,100% { opacity: 0.4; transform: scaleY(1); }
+  50%      { opacity: 1;   transform: scaleY(1.2); }
+}
+
+/* ===== Reveal ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.10s; }
+.reveal-d2 { transition-delay: 0.20s; }
+.reveal-d3 { transition-delay: 0.30s; }
+
+/* ===== Service card ===== */
+.service-card { background: #050505; }
+
+/* ===== abs-center helper ===== */
+.abs-center {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ===== Gallery ===== */
+.gallery-wrap {
+  position: relative;
+  background: #0d0d0d;
+  overflow: hidden;
+}
+
+.gallery-slide {
+  position: absolute; inset: 0;
+  background: #0d0d0d url('../グレーバック.JPG') center/cover no-repeat;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+.gallery-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 全スライドに同じ背景画像（色味変化は廃止してグレーバックに統一） */
+.gallery-slide:nth-child(2),
+.gallery-slide:nth-child(3),
+.gallery-slide:nth-child(4) {
+  background: url('../グレーバック.JPG') center/cover no-repeat;
+}
+
+/* Placeholder overlay: 画像の上に暗い半透明幕を被せてラベルを際立たせる */
+.gallery-slide::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+/* 「写真挿入予定」ラベル */
+.slide-label {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(255,255,255,0.35);
+  padding: 10px 20px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  text-shadow: none;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(2px);
+}
+/* カメラアイコン（疑似要素で代用） */
+.slide-label::before {
+  content: '[ 写真 / 動画 ]';
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+}
+
+/* Dots */
+.gallery-dots {
+  position: absolute;
+  bottom: 10px; left: 0; right: 0;
+  display: flex; justify-content: center; gap: 6px;
+  z-index: 10;
+}
+.gallery-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  border: none; cursor: pointer;
+  padding: 0;
+  transition: background 0.3s, transform 0.3s;
+}
+.gallery-dot.active {
+  background: rgba(255,255,255,0.9);
+  transform: scale(1.3);
+}
+
+/* ===== Stats ===== */
+.stat-cell { transition: background 0.3s; }
+.stat-cell:hover { background: #0d0d0d !important; }
+
+/* ===== Partners ===== */
+.partner-tag {
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 8px 16px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.05em;
+  transition: border-color 0.3s, color 0.3s;
+}
+.partner-tag:hover {
+  border-color: rgba(201,168,76,0.5);
+  color: rgba(255,255,255,0.9);
+}
+
+/* ===== Partner Cards ===== */
+.partner-card {
+  background: #050505;
+  cursor: default;
+}
+.partner-card:hover {
+  background: #0a0a0a;
+}
+/* サムネ画像が読み込まれたらプレースホルダーを非表示 */
+.partner-card .partner-thumb[src]:not([src=""]) {
+  display: block !important;
+}
+.partner-card .partner-thumb[src]:not([src=""]) ~ .partner-thumb-placeholder {
+  display: none !important;
+}
+/* パートナーカードのサムネエリア: グレーバック背景 */
+.partner-card .aspect-video {
+  background: url('../グレーバック.JPG') center/cover no-repeat !important;
+}
+/* サムネエリアにも暗いオーバーレイ（::before は slide-label の親で使えないので ::after で対応） */
+.partner-card .aspect-video::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+  z-index: 1;
+}
+/* partner-thumb-placeholder は slide-label と同じスタイルを継承 */
+.partner-thumb-placeholder {
+  position: relative;
+  z-index: 2;
+}
+
+/* 活動写真グリッド (3枚横並び) のプレースホルダーdivにもグレーバック＋オーバーレイ */
+.reveal.reveal-d3.mt-12.grid .aspect-video {
+  background: url('../グレーバック.JPG') center/cover no-repeat;
+  position: relative;
+}
+.reveal.reveal-d3.mt-12.grid .aspect-video::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+  pointer-events: none;
+}
+.reveal.reveal-d3.mt-12.grid .aspect-video .slide-label {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== Partner Horizontal Scroll ===== */
+.partner-scroll-wrap {
+  /* 右端にカードが途中見えるようにするため親ではみ出しを許可 */
+  overflow: hidden;
+  /* スクロール可能エリアを親より外まで引き伸ばす */
+  margin-right: -24px; /* セクション px-6 分を打ち消す */
+  padding-right: 24px;
+}
+.partner-scroll-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;       /* Firefox */
+  padding-bottom: 8px;
+  /* 右端の次カードをちら見せするためのパディング */
+  padding-right: 24px;
+}
+.partner-scroll-track::-webkit-scrollbar { display: none; }
+
+/* カード幅: PCは1/3・スマホは100% */
+.partner-scroll-item {
+  flex: 0 0 calc((100% - 48px) / 3);   /* 3枚 + gap×2 */
+  scroll-snap-align: start;
+  min-width: 260px;
+}
+
+@media (max-width: 767px) {
+  .partner-scroll-item {
+    flex: 0 0 85%;   /* スマホ: 1枚スナップ、次カードをちら見せ */
+    scroll-snap-align: center;
+  }
+}
+
+
+/* ===== Age bars ===== */
+.age-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.age-label {
+  width: 80px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  flex-shrink: 0;
+  text-align: right;
+}
+.age-row.highlight .age-label  { color: #c9a84c; }
+.age-row.highlight2 .age-label { color: rgba(255,255,255,0.85); }
+
+.age-bar-wrap {
+  flex: 1;
+  height: 28px;
+  background: rgba(255,255,255,0.05);
+  overflow: hidden;
+  border-radius: 2px;
+}
+.age-bar {
+  height: 100%;
+  background: rgba(255,255,255,0.3);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.age-bar.gold-bar   { background: #c9a84c; }
+.age-bar.bright-bar { background: rgba(255,255,255,0.7); }
+
+.age-pct {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0.05em;
+}
+.gold-bar .age-pct { color: #000; }
+
+/* ===== Callout cards ===== */
+.callout-card {
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 28px 24px;
+  text-align: center;
+  transition: border-color 0.3s;
+}
+.callout-card:hover { border-color: rgba(255,255,255,0.3); }
+
+.callout-num {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.callout-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.6;
+}
+
+/* ===== Form ===== */
+.form-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 8px;
+}
+.form-input {
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 12px 16px;
+  color: #fff;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.3s;
+  outline: none;
+}
+.form-input:focus { border-color: rgba(255,255,255,0.7); }
+.form-input::placeholder { color: rgba(255,255,255,0.2); }
+.form-input option { background: #111; color: #fff; }
+
+#form-message.success { color: #c9a84c; display: block !important; }
+#form-message.error   { color: #f87171; display: block !important; }
+
+/* ===== Section separator ===== */
+section + section { border-top: 1px solid rgba(255,255,255,0.04); }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .age-label { width: 64px; font-size: 10px; }
+}

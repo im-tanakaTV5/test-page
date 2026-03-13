@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>田中企画 | Tanaka Kikaku</title>
+  <meta name="description" content="圧倒的なクリエイティビティに、愛されるユーモアを。田中企画はYouTubeチャンネル運営とWebサイト制作の2軸でクライアントの事業を加速させます。" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { gold: '#c9a84c' },
+          fontFamily: { sans: ['Inter', 'Noto Sans JP', 'sans-serif'] },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-black text-white font-sans">
+
+  <!-- ===== NAV ===== -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <a href="#hero" class="text-white font-black tracking-widest text-lg">田中企画</a>
+      <ul class="hidden md:flex items-center gap-10 text-xs tracking-widest uppercase text-gray-400">
+        <li><a href="#services" class="nav-link hover:text-white transition">Services</a></li>
+        <li><a href="#results"  class="nav-link hover:text-white transition">Results</a></li>
+        <li><a href="#strengths" class="nav-link hover:text-white transition">Strengths</a></li>
+        <li><a href="#contact" class="border border-white text-white px-5 py-2 hover:bg-white hover:text-black transition font-semibold tracking-widest">Contact</a></li>
+      </ul>
+      <button id="menu-btn" class="md:hidden flex flex-col gap-1.5" aria-label="メニュー">
+        <span class="ham-line block w-6 h-px bg-white transition-all"></span>
+        <span class="ham-line block w-6 h-px bg-white transition-all"></span>
+        <span class="ham-line block w-6 h-px bg-white transition-all"></span>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-t border-white/10">
+      <ul class="flex flex-col items-center gap-6 py-8 text-sm tracking-widest uppercase text-gray-400">
+        <li><a href="#services"  class="hover:text-white transition" onclick="closeMobileMenu()">Services</a></li>
+        <li><a href="#results"   class="hover:text-white transition" onclick="closeMobileMenu()">Results</a></li>
+        <li><a href="#strengths" class="hover:text-white transition" onclick="closeMobileMenu()">Strengths</a></li>
+        <li><a href="#contact"   class="border border-white text-white px-6 py-2 hover:bg-white hover:text-black transition" onclick="closeMobileMenu()">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0 bg-black">
+      <!-- Hero Background Video -->
+      <div class="absolute inset-0">
+        <!-- 網掛け柄（グリッド）を動画の上に乗せる場合 -->
+        <div class="grid-bg absolute inset-0 opacity-20 z-10 pointer-events-none"></div>
+        <video autoplay loop muted playsinline class="w-full h-full object-cover">
+          <source src="イメージ映像.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black z-10 pointer-events-none"></div>
+    </div>
+
+    <div class="relative z-20 text-center px-6 max-w-5xl mx-auto">
+      <p class="reveal text-xs tracking-[0.4em] uppercase text-gold mb-6">Est. September 2025</p>
+      <h1 class="reveal reveal-d1 font-black leading-none mb-6">
+        <span class="block text-6xl md:text-8xl lg:text-9xl tracking-tighter">田中企画</span>
+        <span class="block text-lg md:text-2xl font-light tracking-widest text-gray-400 mt-4">Tanaka Kikaku</span>
+      </h1>
+      <p class="reveal reveal-d2 text-base md:text-xl lg:text-2xl text-gray-300 font-light leading-relaxed mt-8 max-w-2xl mx-auto">
+        圧倒的なクリエイティビティに、<br class="sm:hidden" />愛されるユーモアを
+      </p>
+      <div class="reveal reveal-d3 mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#services" class="border border-white text-white px-8 py-3 text-sm tracking-widest uppercase hover:bg-white hover:text-black transition font-semibold">Our Services</a>
+        <a href="#contact"  class="bg-white text-black px-8 py-3 text-sm tracking-widest uppercase hover:bg-gray-200 transition font-semibold">Let's Work Together</a>
+      </div>
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-gray-500">
+      <span class="text-xs tracking-widest uppercase">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" class="py-32 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="reveal mb-20">
+        <p class="text-xs tracking-[0.4em] uppercase text-gold mb-3">02 / Services</p>
+        <h2 class="text-4xl md:text-6xl font-black tracking-tighter">事業内容</h2>
+        <div class="mt-4 w-16 h-px bg-gold"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- YouTube -->
+        <div class="reveal reveal-d1 service-card group relative overflow-hidden border border-white/10 p-10 hover:border-white/40 transition-all duration-500">
+          <!-- Gallery -->
+          <div class="gallery-wrap aspect-video w-full mb-8 relative overflow-hidden border border-white/10" data-gallery="yt-service">
+            <div class="gallery-slide active"><div class="abs-center"><span class="slide-label">YouTube サムネ / 動画 1</span></div></div>
+            <div class="gallery-slide"><div class="abs-center"><span class="slide-label">YouTube サムネ / 動画 2</span></div></div>
+            <div class="gallery-slide"><div class="abs-center"><span class="slide-label">YouTube サムネ / 動画 3</span></div></div>
+            <div class="gallery-dots" id="yt-service-dots"></div>
+          </div>
+          <p class="text-xs tracking-[0.3em] uppercase text-gold mb-3">YouTube Channel</p>
+          <h3 class="text-2xl md:text-3xl font-black tracking-tight mb-4">田中overdrive /<br />学生ギタリスト</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">ギター系YouTubeチャンネルの自社運営。登録者1万人・総再生回数284.5万回を誇る若年層への圧倒的なリーチ力を武器に、楽器・音楽関連企業のブランドプロモーションをご支援します。</p>
+          <div class="mt-8 flex gap-6 text-center">
+            <div><p class="text-2xl font-black">1万+</p><p class="text-xs text-gray-500 mt-1 tracking-wider">登録者</p></div>
+            <div class="w-px bg-white/10"></div>
+            <div><p class="text-2xl font-black">284.5万</p><p class="text-xs text-gray-500 mt-1 tracking-wider">総再生回数</p></div>
+            <div class="w-px bg-white/10"></div>
+            <div><p class="text-2xl font-black text-gold">97.6%</p><p class="text-xs text-gray-500 mt-1 tracking-wider">高評価率</p></div>
+          </div>
+        </div>
+
+        <!-- Web -->
+        <div class="reveal reveal-d2 service-card group relative overflow-hidden border border-white/10 p-10 hover:border-white/40 transition-all duration-500">
+          <!-- Gallery -->
+          <div class="gallery-wrap aspect-video w-full mb-8 relative overflow-hidden border border-white/10" data-gallery="web-service">
+            <div class="gallery-slide active"><div class="abs-center"><span class="slide-label">制作実例 / 写真 1</span></div></div>
+            <div class="gallery-slide"><div class="abs-center"><span class="slide-label">制作実例 / 写真 2</span></div></div>
+            <div class="gallery-slide"><div class="abs-center"><span class="slide-label">制作実例 / 写真 3</span></div></div>
+            <div class="gallery-dots" id="web-service-dots"></div>
+          </div>
+          <p class="text-xs tracking-[0.3em] uppercase text-gold mb-3">Web Development</p>
+          <h3 class="text-2xl md:text-3xl font-black tracking-tight mb-4">toB向け<br />Webサイト制作</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">AI・クラウド・インフラまで幅広い技術知見と、マーケティング視点を持つ代表によるオーダーメイドWebサイト制作。コンテンツクリエイターの感性で映像・音楽を融合した独自性の高いサイトを納品します。</p>
+          <div class="mt-8 grid grid-cols-2 gap-3">
+            <div class="border border-white/10 px-4 py-3"><p class="text-xs text-gold tracking-wider">UI / UX Design</p></div>
+            <div class="border border-white/10 px-4 py-3"><p class="text-xs text-gold tracking-wider">Front-end Dev</p></div>
+            <div class="border border-white/10 px-4 py-3"><p class="text-xs text-gold tracking-wider">AI Integration</p></div>
+            <div class="border border-white/10 px-4 py-3"><p class="text-xs text-gold tracking-wider">Cloud / Infra</p></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESULTS ===== -->
+  <section id="results" class="py-32 px-6 bg-[#0a0a0a]">
+    <div class="max-w-7xl mx-auto">
+      <div class="reveal mb-20">
+        <p class="text-xs tracking-[0.4em] uppercase text-gold mb-3">03 / Results</p>
+        <h2 class="text-4xl md:text-6xl font-black tracking-tighter">実績</h2>
+        <div class="mt-4 w-16 h-px bg-gold"></div>
+      </div>
+
+      <!-- YouTube Results -->
+      <div class="mb-24">
+        <p class="reveal text-xs tracking-[0.3em] uppercase text-gray-500 mb-10">— YouTube</p>
+
+        <!-- Stats grid — 数値は静的テキストで正しく表示 -->
+        <div class="reveal reveal-d1 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5">
+          <div class="stat-cell bg-black p-8 text-center" data-count="10000" data-unit="+" data-label="チャンネル登録者">
+            <p class="stat-val text-4xl md:text-5xl font-black">1万+</p>
+            <p class="text-xs text-gray-500 mt-2 tracking-widest">チャンネル登録者</p>
+          </div>
+          <div class="stat-cell bg-black p-8 text-center" data-count="2845000" data-label="総再生回数">
+            <p class="stat-val text-4xl md:text-5xl font-black">284.5万回</p>
+            <p class="text-xs text-gray-500 mt-2 tracking-widest">総再生回数</p>
+          </div>
+          <div class="stat-cell bg-black p-8 text-center">
+            <p class="stat-val text-4xl md:text-5xl font-black">5.2万h</p>
+            <p class="text-xs text-gray-500 mt-2 tracking-widest">総再生時間</p>
+          </div>
+          <div class="stat-cell bg-black p-8 text-center">
+            <p class="stat-val text-4xl md:text-5xl font-black text-gold">97.6%</p>
+            <p class="text-xs text-gray-500 mt-2 tracking-widest">高評価率</p>
+          </div>
+        </div>
+
+        <div class="reveal reveal-d2 mt-8 max-w-3xl mx-auto text-center">
+          <p class="text-gray-300 text-sm leading-relaxed">2024年初夏に運用開始した全年代のギター系YouTuberの中で、<strong class="text-white">日本屈指の規模・再生数・リーチ力</strong>を誇る。元全国3位の実績を持つ代表による圧倒的な演奏クオリティが高評価率97.6%という数字に表れている。</p>
+        </div>
+
+        <!-- Gallery for results (3-column grid) -->
+        <div class="reveal reveal-d3 mt-12 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="aspect-video relative overflow-hidden border border-white/10 bg-[#0d0d0d] flex items-center justify-center">
+            <span class="slide-label">活動写真 1</span>
+          </div>
+          <div class="aspect-video relative overflow-hidden border border-white/10 bg-[#0d0d0d] flex items-center justify-center">
+            <span class="slide-label">活動写真 2</span>
+          </div>
+          <div class="aspect-video relative overflow-hidden border border-white/10 bg-[#0d0d0d] flex items-center justify-center">
+            <span class="slide-label">活動写真 3</span>
+          </div>
+        </div>
+
+        <!-- Partners -->
+        <div class="reveal reveal-d3 mt-20">
+          <div class="flex items-baseline justify-between mb-10">
+            <p class="text-xs tracking-[0.3em] uppercase text-gray-500">Collaboration Partners</p>
+            <p class="text-xs text-gray-600 tracking-wider hidden sm:block">← スクロールで全件表示</p>
+          </div>
+          <!-- 横スクロールコンテナ: PCは3枚見え、スマホは1枚スナップ -->
+          <div class="partner-scroll-wrap">
+            <div class="partner-scroll-track">
+
+              <!-- 島村楽器 -->
+              <div class="partner-card partner-scroll-item group relative border border-white/10 hover:border-white/40 transition-all duration-500 overflow-hidden">
+                <div class="aspect-video w-full bg-[#0d0d0d] relative overflow-hidden flex items-center justify-center">
+                  <!-- サムネ画像: src に画像パスを指定してください -->
+                  <img src="" alt="島村楽器 吉祥寺パルコ店 コラボ動画サムネ" class="w-full h-full object-cover hidden partner-thumb" />
+                  <span class="slide-label text-xs partner-thumb-placeholder">サムネを挿入</span>
+                </div>
+                <div class="p-5">
+                  <p class="text-[10px] tracking-[0.25em] uppercase text-gold mb-2">Collaboration</p>
+                  <p class="text-lg font-black tracking-tight leading-snug">株式会社 島村楽器<br /><span class="text-sm font-normal text-gray-400">吉祥寺パルコ店</span></p>
+                </div>
+              </div>
+
+              <!-- Hotone Japan -->
+              <div class="partner-card partner-scroll-item group relative border border-white/10 hover:border-white/40 transition-all duration-500 overflow-hidden">
+                <div class="aspect-video w-full bg-[#0d0d0d] relative overflow-hidden flex items-center justify-center">
+                  <img src="" alt="Hotone Japan コラボ動画サムネ" class="w-full h-full object-cover hidden partner-thumb" />
+                  <span class="slide-label text-xs partner-thumb-placeholder">サムネを挿入</span>
+                </div>
+                <div class="p-5">
+                  <p class="text-[10px] tracking-[0.25em] uppercase text-gold mb-2">Collaboration</p>
+                  <p class="text-lg font-black tracking-tight">株式会社 Hotone Japan</p>
+                </div>
+              </div>
+
+              <!-- ENYA MUSIC -->
+              <div class="partner-card partner-scroll-item group relative border border-white/10 hover:border-white/40 transition-all duration-500 overflow-hidden">
+                <div class="aspect-video w-full bg-[#0d0d0d] relative overflow-hidden flex items-center justify-center">
+                  <img src="" alt="ENYA MUSIC コラボ動画サムネ" class="w-full h-full object-cover hidden partner-thumb" />
+                  <span class="slide-label text-xs partner-thumb-placeholder">サムネを挿入</span>
+                </div>
+                <div class="p-5">
+                  <p class="text-[10px] tracking-[0.25em] uppercase text-gold mb-2">Collaboration</p>
+                  <p class="text-lg font-black tracking-tight">ENYA MUSIC</p>
+                </div>
+              </div>
+
+              <!-- OneOdio -->
+              <div class="partner-card partner-scroll-item group relative border border-white/10 hover:border-white/40 transition-all duration-500 overflow-hidden">
+                <div class="aspect-video w-full bg-[#0d0d0d] relative overflow-hidden flex items-center justify-center">
+                  <img src="" alt="OneOdio コラボ動画サムネ" class="w-full h-full object-cover hidden partner-thumb" />
+                  <span class="slide-label text-xs partner-thumb-placeholder">サムネを挿入</span>
+                </div>
+                <div class="p-5">
+                  <p class="text-[10px] tracking-[0.25em] uppercase text-gold mb-2">Collaboration</p>
+                  <p class="text-lg font-black tracking-tight">OneOdio</p>
+                </div>
+              </div>
+
+              <!-- Xvive Audio -->
+              <div class="partner-card partner-scroll-item group relative border border-white/10 hover:border-white/40 transition-all duration-500 overflow-hidden">
+                <div class="aspect-video w-full bg-[#0d0d0d] relative overflow-hidden flex items-center justify-center">
+                  <img src="" alt="Xvive Audio コラボ動画サムネ" class="w-full h-full object-cover hidden partner-thumb" />
+                  <span class="slide-label text-xs partner-thumb-placeholder">サムネを挿入</span>
+                </div>
+                <div class="p-5">
+                  <p class="text-[10px] tracking-[0.25em] uppercase text-gold mb-2">Collaboration</p>
+                  <p class="text-lg font-black tracking-tight">Xvive Audio</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Web Results -->
+      <div class="border-t border-white/10 pt-24">
+        <p class="reveal text-xs tracking-[0.3em] uppercase text-gray-500 mb-10">— Web Development</p>
+        <div class="reveal reveal-d1 grid md:grid-cols-2 gap-12 items-start">
+          <div>
+            <h3 class="text-2xl md:text-3xl font-black mb-6 tracking-tight">制作スペック</h3>
+            <ul class="space-y-4 text-sm text-gray-400">
+              <li class="flex items-start gap-3"><span class="text-gold mt-0.5">—</span><span>IT系専門学校を<strong class="text-white">TOPクラスの成績</strong>で卒業、AI系民間資格保持</span></li>
+              <li class="flex items-start gap-3"><span class="text-gold mt-0.5">—</span><span>大学学士課程でAIを用いた研究を継続、修士課程での継続も見込み</span></li>
+              <li class="flex items-start gap-3"><span class="text-gold mt-0.5">—</span><span>Webコーディングに留まらず<strong class="text-white">クラウド・インフラ構築</strong>まで幅広い知見を保有</span></li>
+              <li class="flex items-start gap-3"><span class="text-gold mt-0.5">—</span><span>toB/toCのお客様向けにWebサイトをオーダーメイドで制作</span></li>
+            </ul>
+          </div>
+          <div>
+            <!-- Web制作ギャラリー -->
+            <div class="gallery-wrap aspect-video w-full relative overflow-hidden border border-white/10" data-gallery="web-results">
+              <div class="gallery-slide active"><div class="abs-center"><span class="slide-label">制作実例を挿入 1</span></div></div>
+              <div class="gallery-slide"><div class="abs-center"><span class="slide-label">制作実例を挿入 2</span></div></div>
+              <div class="gallery-dots" id="web-results-dots"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== STRENGTHS ===== -->
+  <section id="strengths" class="py-32 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="reveal mb-20">
+        <p class="text-xs tracking-[0.4em] uppercase text-gold mb-3">04 / Strengths</p>
+        <h2 class="text-4xl md:text-6xl font-black tracking-tighter">強み</h2>
+        <div class="mt-4 w-16 h-px bg-gold"></div>
+      </div>
+
+      <!-- ====== YouTube Strengths ====== -->
+      <div class="mb-32">
+        <p class="reveal text-xs tracking-[0.3em] uppercase text-gray-500 mb-16">— YouTube Channel</p>
+
+        <!-- ① 最重要KPI: 年齢層ヒーロー表示 -->
+        <div class="reveal mb-20">
+          <p class="text-xs tracking-widest uppercase text-gray-600 mb-6">視聴者 年齢構成（2025年12月現在）</p>
+
+          <!-- 年齢バー -->
+          <div class="space-y-3 max-w-3xl">
+            <div class="age-row" data-pct="12.9">
+              <div class="age-label">13〜17歳</div>
+              <div class="age-bar-wrap"><div class="age-bar" style="width:0%"><span class="age-pct">12.9%</span></div></div>
+            </div>
+            <div class="age-row highlight" data-pct="34.7">
+              <div class="age-label text-gold font-bold">18〜24歳</div>
+              <div class="age-bar-wrap"><div class="age-bar gold-bar" style="width:0%"><span class="age-pct text-black">34.7%</span></div></div>
+            </div>
+            <div class="age-row highlight2" data-pct="27.2">
+              <div class="age-label font-semibold">25〜34歳</div>
+              <div class="age-bar-wrap"><div class="age-bar bright-bar" style="width:0%"><span class="age-pct">27.2%</span></div></div>
+            </div>
+            <div class="age-row" data-pct="11.8">
+              <div class="age-label">35〜44歳</div>
+              <div class="age-bar-wrap"><div class="age-bar" style="width:0%"><span class="age-pct">11.8%</span></div></div>
+            </div>
+            <div class="age-row" data-pct="9.5">
+              <div class="age-label">45〜54歳</div>
+              <div class="age-bar-wrap"><div class="age-bar" style="width:0%"><span class="age-pct">9.5%</span></div></div>
+            </div>
+            <div class="age-row" data-pct="2.9">
+              <div class="age-label">55〜64歳</div>
+              <div class="age-bar-wrap"><div class="age-bar" style="width:0%"><span class="age-pct">2.9%</span></div></div>
+            </div>
+            <div class="age-row" data-pct="1.0">
+              <div class="age-label">65歳以上</div>
+              <div class="age-bar-wrap"><div class="age-bar" style="width:0%"><span class="age-pct">1.0%</span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ② 強調コールアウト -->
+        <div class="reveal grid md:grid-cols-3 gap-6 mb-20">
+          <div class="callout-card col-span-1 md:col-span-1">
+            <div class="callout-num text-gold">75%</div>
+            <div class="callout-label">13〜34歳<br /><span class="text-gray-500 font-normal text-xs">主要若年層の割合</span></div>
+          </div>
+          <div class="callout-card col-span-1 md:col-span-1">
+            <div class="callout-num">34.7%</div>
+            <div class="callout-label">18〜24歳<br /><span class="text-gray-500 font-normal text-xs">最大視聴者層（購買コア層）</span></div>
+          </div>
+          <div class="callout-card col-span-1 md:col-span-1">
+            <div class="callout-num">91.9%</div>
+            <div class="callout-label">男性視聴者<br /><span class="text-gray-500 font-normal text-xs">楽器購買層と高い一致</span></div>
+          </div>
+        </div>
+
+        <!-- ③ 案件動画比較 -->
+        <div class="reveal mb-8 text-center">
+          <h3 class="text-xl md:text-2xl font-black tracking-tight mb-2">案件動画でも落ちない再生数</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-8 max-w-2xl mx-auto">多くのチャンネルで企業案件動画は再生数が大幅に落ちますが、当チャンネルでは独自フォーマットにより<strong class="text-white">通常動画と同水準</strong>の数値を維持しています。</p>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="border-b border-white/10">
+                  <th class="text-left py-3 px-4 text-xs tracking-widest text-gray-500 uppercase">コンテンツ</th>
+                  <th class="text-right py-3 px-4 text-xs tracking-widest text-gray-500 uppercase">再生回数</th>
+                  <th class="text-right py-3 px-4 text-xs tracking-widest text-gray-500 uppercase">クリック率</th>
+                  <th class="text-right py-3 px-4 text-xs tracking-widest text-gray-500 uppercase">総再生時間</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-white/5">
+                  <td class="py-4 px-4 text-gray-400">通常動画（平均）</td>
+                  <td class="py-4 px-4 text-right font-mono text-white">8,130 回</td>
+                  <td class="py-4 px-4 text-right font-mono text-white">4.79%</td>
+                  <td class="py-4 px-4 text-right font-mono text-white">334.4 h</td>
+                </tr>
+                <tr class="border-b border-white/5">
+                  <td class="py-4 px-4 text-gray-400">コラボ動画 A</td>
+                  <td class="py-4 px-4 text-right font-mono text-gold font-bold">8,828 回</td>
+                  <td class="py-4 px-4 text-right font-mono text-gold font-bold">5.6%</td>
+                  <td class="py-4 px-4 text-right font-mono text-white">286.2 h</td>
+                </tr>
+                <tr class="border-b border-white/5">
+                  <td class="py-4 px-4 text-gray-400">コラボ動画 B</td>
+                  <td class="py-4 px-4 text-right font-mono text-white">7,294 回</td>
+                  <td class="py-4 px-4 text-right font-mono text-white">5.0%</td>
+                  <td class="py-4 px-4 text-right font-mono text-gold font-bold">570.1 h</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-xs text-gray-600 mt-3">* 通常動画期間: 2025/06/29〜2025/11/23</p>
+        </div>
+
+      </div>
+
+      <!-- ====== Web Strengths ====== -->
+      <div class="border-t border-white/10 pt-24">
+        <p class="reveal text-xs tracking-[0.3em] uppercase text-gray-500 mb-12">— Web Development</p>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="reveal reveal-d1 p-8 border border-white/10 hover:border-white/30 transition">
+            <div class="text-gold text-3xl font-black mb-4">01</div>
+            <h4 class="font-black text-lg mb-3">丁寧なヒアリング</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">要件定義から細かくヒアリングし、クライアントの目標に合わせたオーダーメイド設計を行います。</p>
+          </div>
+          <div class="reveal reveal-d2 p-8 border border-white/10 hover:border-white/30 transition">
+            <div class="text-gold text-3xl font-black mb-4">02</div>
+            <h4 class="font-black text-lg mb-3">売れる設計</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">マーケティングを学んだ代表がコンバージョンを意識したUI/UX設計で、ビジネス成果に繋がるサイトを制作します。</p>
+          </div>
+          <div class="reveal reveal-d3 p-8 border border-white/10 hover:border-white/30 transition">
+            <div class="text-gold text-3xl font-black mb-4">03</div>
+            <h4 class="font-black text-lg mb-3">映像×Webの高品質表現</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">クリエイターの視点で映像・音楽を融合させた、独自性の高いWebサイトを納品します。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="py-32 px-6 bg-[#0a0a0a]">
+    <div class="max-w-3xl mx-auto">
+      <div class="reveal mb-16 text-center">
+        <p class="text-xs tracking-[0.4em] uppercase text-gold mb-3">05 / Contact</p>
+        <h2 class="text-4xl md:text-6xl font-black tracking-tighter">Let's Work<br />Together.</h2>
+        <p class="text-gray-400 text-sm mt-6 leading-relaxed">YouTube案件・Webサイト制作に関するご相談、お見積りなどお気軽にご連絡ください。</p>
+      </div>
+
+      <form id="contact-form" class="reveal reveal-d1 space-y-6" onsubmit="handleSubmit(event)">
+        <div>
+          <label class="form-label" for="name">お名前 / 企業名 <span class="text-gold">*</span></label>
+          <input id="name" name="name" type="text" required placeholder="山田 太郎 / 株式会社〇〇" class="form-input" />
+        </div>
+        <div>
+          <label class="form-label" for="email">メールアドレス <span class="text-gold">*</span></label>
+          <input id="email" name="email" type="email" required placeholder="example@company.com" class="form-input" />
+        </div>
+        <div>
+          <label class="form-label" for="service">ご相談のサービス</label>
+          <select id="service" name="service" class="form-input bg-black appearance-none cursor-pointer">
+            <option value="">選択してください</option>
+            <option value="youtube">YouTube チャンネルコラボレーション</option>
+            <option value="web">Webサイト制作</option>
+            <option value="both">両方</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" for="message">ご相談内容 <span class="text-gold">*</span></label>
+          <textarea id="message" name="message" rows="6" required placeholder="ご相談内容をご記入ください" class="form-input resize-none"></textarea>
+        </div>
+        <button type="submit" id="submit-btn" class="w-full bg-white text-black py-4 text-sm tracking-widest uppercase font-bold hover:bg-gray-200 transition">
+          送信する — Send
+        </button>
+        <p id="form-message" class="text-center text-sm hidden"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="border-t border-white/10 py-10 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-600 tracking-widest">
+      <p class="font-black text-white">田中企画</p>
+      <p>© 2025 Tanaka Kikaku. All rights reserved.</p>
+      <p>Est. September 2025</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
