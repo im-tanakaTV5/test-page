@@ -64,7 +64,7 @@ body { background: #000; color: #fff; overflow-x: hidden; }
 
 .gallery-slide {
   position: absolute; inset: 0;
-  background: #0d0d0d url('../グレーバック.JPG') center/cover no-repeat;
+  background: #0d0d0d url('../gray_bg.jpg') center/cover no-repeat;
   opacity: 0;
   transition: opacity 0.8s ease;
   pointer-events: none;
@@ -78,7 +78,7 @@ body { background: #000; color: #fff; overflow-x: hidden; }
 .gallery-slide:nth-child(2),
 .gallery-slide:nth-child(3),
 .gallery-slide:nth-child(4) {
-  background: url('../グレーバック.JPG') center/cover no-repeat;
+  background: url('../gray_bg.jpg') center/cover no-repeat;
 }
 
 /* Placeholder overlay: 画像の上に暗い半透明幕を被せてラベルを際立たせる */
@@ -172,7 +172,7 @@ body { background: #000; color: #fff; overflow-x: hidden; }
 }
 /* パートナーカードのサムネエリア: グレーバック背景 */
 .partner-card .aspect-video {
-  background: url('../グレーバック.JPG') center/cover no-repeat !important;
+  background: url('../gray_bg.jpg') center/cover no-repeat !important;
 }
 /* サムネエリアにも暗いオーバーレイ（::before は slide-label の親で使えないので ::after で対応） */
 .partner-card .aspect-video::before {
@@ -190,7 +190,7 @@ body { background: #000; color: #fff; overflow-x: hidden; }
 
 /* 活動写真グリッド (3枚横並び) のプレースホルダーdivにもグレーバック＋オーバーレイ */
 .reveal.reveal-d3.mt-12.grid .aspect-video {
-  background: url('../グレーバック.JPG') center/cover no-repeat;
+  background: url('../gray_bg.jpg') center/cover no-repeat;
   position: relative;
 }
 .reveal.reveal-d3.mt-12.grid .aspect-video::before {
